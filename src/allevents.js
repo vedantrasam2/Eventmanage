@@ -10,6 +10,7 @@ import sportevent from "./Images/sportevent.jpg";
 import finearts from "./Images/finearts.jpg";
 import technicalevent from "./Images/technicalevent.jpg";
 import performingevent from "./Images/performingevent.jpg";
+import Sidenav from "./sidenav";
 function GroupExample({ setEventId, eventId, setEventName, eventName }) {
   const [events, setEvents] = useState({});
   const navigate = useNavigate();
@@ -20,12 +21,12 @@ function GroupExample({ setEventId, eventId, setEventName, eventName }) {
       setEventName(res?.data[0]?.eventname);
     });
   }, []);
-  const handlOnClick = (e , eventname , id) => {
+  const handlOnClick = (e, eventname, id) => {
     // Todo
     // axios.get("http://localhost:5000/event-register").then((res) => {
     //   console.log()
     // })
-    setEventName(eventname)
+    setEventName(eventname);
     setEventId(id);
     console.log(id);
     navigate(`/more-events/${eventname}`);
@@ -36,6 +37,7 @@ function GroupExample({ setEventId, eventId, setEventName, eventName }) {
   // };
   return (
     <>
+      <Sidenav></Sidenav>
       {console.log(events.length)}
       <div className="allevents event-container">
         {events.length > 0
@@ -44,11 +46,7 @@ function GroupExample({ setEventId, eventId, setEventName, eventName }) {
                 <div className={`firstcard-${event.id} cards`}>
                   <Card style={{ width: "26rem" }}>
                     {/* <Card.Img variant="top" src={`${event.eventname.toLowerCase()}event`.jpg} height="300px" /> */}
-                    <Card.Img
-                      variant="top"
-                      src={event.imgurl}
-                      height="300px"
-                    />
+                    <Card.Img variant="top" src={event.imgurl} height="300px" />
                     {console.log(event.eventname.toLowerCase().concat("event"))}
                     <Card.Body className="cardbody">
                       <Card.Title className="cardtitle">
@@ -66,7 +64,9 @@ function GroupExample({ setEventId, eventId, setEventName, eventName }) {
                       </Card.Text>
                       <Button
                         variant="primary"
-                        onClick={(e) => handlOnClick(e , event.eventname , event.id)}
+                        onClick={(e) =>
+                          handlOnClick(e, event.eventname, event.id)
+                        }
                       >
                         ENROLL
                       </Button>

@@ -20,7 +20,7 @@ import Event from "./Event";
 import AdminPanel from "./AdminPanel";
 import Teacher from "./Teacher";
 import Result from "./Result";
-import Controller from './Controller'
+import Controller from "./Controller";
 
 function App() {
   const [userDetails, setUserDetails] = useState({});
@@ -31,7 +31,6 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Sidenav></Sidenav>
         <Routes>
           <Route path="/" exact element={<Homepage />} />
           <Route path="/about us" exact element={<About />} />

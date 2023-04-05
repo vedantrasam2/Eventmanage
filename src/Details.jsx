@@ -1,4 +1,5 @@
 import React from "react";
+import Sidenav from "./sidenav";
 
 const Details = ({ data }) => {
   return (
@@ -16,10 +17,13 @@ const Details = ({ data }) => {
                 Event
               </th> */}
               <th scope="col" class="px-6 py-3">
-                Category
+                Event
               </th>
               <th scope="col" class="px-6 py-3">
-                leader
+                Contigent
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Leader
               </th>
               <th scope="col" class="px-6 py-3">
                 player1
@@ -50,7 +54,12 @@ const Details = ({ data }) => {
                         {val?.username}
                       </th>
                       <td class="px-6 py-4 dark:text-black">{val?.category}</td>
-                      <td className="px-6 py-4 dark:text-black">{val?.leader}</td>
+                      <td className="px-6 py-4 dark:text-black">
+                        {val?.leader}
+                      </td>
+                      <td className="px-6 py-4 dark:text-black">
+                        {val?.username}
+                      </td>
                       <td class="px-6 py-4 dark:text-black">{val?.player1}</td>
                       <td class="px-6 py-4 dark:text-black">{val?.player2}</td>
                       <td class="px-6 py-4 dark:text-black">{val?.player3}</td>

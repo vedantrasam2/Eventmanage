@@ -11,6 +11,7 @@ import {
   MDBCol,
   MDBInput,
 } from "mdb-react-ui-kit";
+import Sidenav from "./sidenav";
 
 const Event = ({ eventId, uniqueEvent, eventName }) => {
   const [Cname, setName] = useState("");
@@ -56,10 +57,9 @@ const Event = ({ eventId, uniqueEvent, eventName }) => {
       if (result.status === 200) {
         alert("Done registration");
         navigate("/");
-      }
-      else {
-        alert("Username invalid")
-        navigate("/signup")
+      } else {
+        alert("Username invalid");
+        navigate("/signup");
       }
     });
     console.log(data);

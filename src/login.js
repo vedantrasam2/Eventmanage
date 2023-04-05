@@ -3,6 +3,7 @@ import loginpic from "./Images/loginpic.png";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import Sidenav from "./sidenav";
 export default function Login({ setUserDetails }) {
   const navigate = useNavigate();
   const [input, setInput] = useState({
@@ -28,7 +29,11 @@ export default function Login({ setUserDetails }) {
       .then((res) => {
         //  console.log(res.data.result);
         // console.log(res.data.message);
-        if (res.data.message !== "failed" && res.data.result !== "Teacher" && res.data.result !== "Admin") {
+        if (
+          res.data.message !== "failed" &&
+          res.data.result !== "Teacher" &&
+          res.data.result !== "Admin"
+        ) {
           alert("Login");
           setUserDetails(res.data.result);
           navigate("/user");

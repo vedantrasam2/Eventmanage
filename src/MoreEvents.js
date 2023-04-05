@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Sidenav from "./sidenav";
 
 const MoreEvents = ({ eventId, eventName, setEventName, setUniqueEvent }) => {
   const [data, setData] = useState({});
@@ -27,14 +28,11 @@ const MoreEvents = ({ eventId, eventName, setEventName, setUniqueEvent }) => {
               <div className="general-container">
                 <h1 class="card-title">{val?.eventname}</h1>
                 {/* <h1>{val?.category}</h1> */}
-                <div
-                  style={{ width: "auto", height: "auto" }}
-                  class="col-sm-6"
-                >
+                <div style={{ width: "auto", height: "auto" }} class="col-sm-6">
                   <div class="card" style={{ width: "30rem", height: "auto" }}>
                     <div class="card-body">
                       <p class="card-text-black">{val?.description}</p>
-                      
+
                       {/* <h3>Rule: </h3>
                       <ul>
                         <li className="card-text">{val?.description}</li>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ConfettiExplosion from "react-confetti-explosion";
+import Sidenav from "./sidenav";
 
 const Result = () => {
   const [info, setInfo] = useState({});
@@ -18,6 +19,7 @@ const Result = () => {
         particleCount={250}
         width={3600}
       />
+      <Sidenav></Sidenav>
       <div className="allevents">
         <h1>Result</h1>
       </div>
