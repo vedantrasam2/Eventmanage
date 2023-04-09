@@ -81,19 +81,19 @@ function Userdata({ userDetails, data }) {
                             {val?.username}
                           </td>
                           <td className="px-4 py-3 border-b border-gray-200 bg-white text-sm">
-                            {val?.participant1}
+                            {val?.player1}
                           </td>
                           <td className="px-4 py-3 border-b border-gray-200 bg-white text-sm">
-                            {val?.participant2}
+                            {val?.player2}
                           </td>
                           <td className="px-4 py-3 border-b border-gray-200 bg-white text-sm">
-                            {val?.participant3}
+                            {val?.player3}
                           </td>
                           <td className="px-4 py-3 border-b border-gray-200 bg-white text-sm">
-                            {val?.participant4}
+                            {val?.player4}
                           </td>
                           <td className="px-4 py-3 border-b border-gray-200 bg-white text-sm">
-                            {val?.participant5}
+                            {val?.player5}
                           </td>
                         </tr>
                       </>

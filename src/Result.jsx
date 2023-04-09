@@ -7,7 +7,7 @@ const Result = () => {
   const [info, setInfo] = useState({});
   useEffect(() => {
     axios.get("http://localhost:5000/result").then((result) => {
-      console.log(result.data);
+      // console.log(result.data);
       setInfo(result.data);
     });
   }, []);
@@ -30,26 +30,31 @@ const Result = () => {
             {info?.length > 0
               ? info?.map((val) => (
                   <>
-                    <div style={{ marginLeft: "10px" }} className="list-group">
-                      <h3>Category:</h3>
-                      <h2>{val?.eventname}</h2>
+                    <div
+                      style={{ marginLeft: "10px", transform: "scale(0.8)" }}
+                      className="list-group font-bold"
+                    >
+                      <h6>Category:</h6>
+                      <h4>{val?.eventname}</h4>
                       <a
                         href="#"
-                        className="list-group-item list-group-item-action active result"
+                        className="list-group-item list-group-item-action result"
+                        style={{ background: "#000000", color: "#fff" }}
                       >
-                        Winner : <h1>{val?.firstwinner}</h1>
+                        Winner :{" "}
+                        <h4 style={{ color: "#fff" }}>{val?.firstwinner}</h4>
                       </a>
                       <a
                         href="#"
                         className="list-group-item list-group-item-action result"
                       >
-                        2nd : <h1>{val?.secondwinner}</h1>
+                        2nd : <h4>{val?.secondwinner}</h4>
                       </a>
                       <a
                         href="#"
                         className="list-group-item list-group-item-action result"
                       >
-                        3rd : <h1>{val?.thirdwinner}</h1>
+                        3rd : <h4>{val?.thirdwinner}</h4>
                       </a>
                     </div>
                   </>

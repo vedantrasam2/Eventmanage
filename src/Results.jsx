@@ -32,15 +32,13 @@ const Results = () => {
         thirdwinner: eventType,
       },
     ];
-    console.log(data);
-    axios
-      .post("https://events-yv65.onrender.com00/result", data)
-      .then((result) => {
-        console.log(result);
-        if (result.status === 200) {
-          alert("done, result added");
-        }
-      });
+    // console.log(data);
+    axios.post("http://localhost:5000/result", data).then((result) => {
+      console.log(result);
+      if (result.status === 200) {
+        alert("done, result added");
+      }
+    });
   };
   return (
     <>

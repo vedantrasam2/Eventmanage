@@ -19,24 +19,41 @@ app.use(express.urlencoded({ extended: true }));
 
 let data;
 
-app.delete("/event-remove/:id" , (req ,res) => {
-  const ids = req.params.id
+app.delete("/event-remove/:id", (req, res) => {
+  const ids = req.params.id;
   // console.log(ids);
   // res.send(ids);
-  MoreEvents.findByIdAndDelete({_id : ids}).then(result => {
+  MoreEvents.findByIdAndDelete({ _id: ids }).then((result) => {
     console.log("done");
-    res.send({message : "Success" , result : result});
-  }) 
-})
+    res.send({ message: "Success", result: result });
+  });
+});
 app.get("/all", (req, res) => {
   MoreEvents.find({}).then((result) => {
     console.log(result);
     res.send(result);
   });
 });
+
+app.post("/result", (req, res) => {
+  var data = req.body;
+  Result.create({
+    eventname: data[0].eventname,
+    firstwinner: data[0].firstwinner,
+    secondwinner: data[0].secondwinner,
+    thirdwinner: data[0].thirdwinner,
+  })
+    .then((result) => {
+      res.status(200).send("result added");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 app.get("/result", (req, res) => {
   Result.find({}).then((result) => {
-    console.log(result);
+    // console.log(result);
     res.send(result);
   });
 });
@@ -83,10 +100,9 @@ app.post("/login", (req, res) => {
       } else if (result.password === password) {
         if (result.role === "Teacher") {
           res.send({ message: "success", result: result.role });
-        } else if(result.role === "Admin") {
-          res.send({message : "success" , result : result.role});
-        } 
-        else {
+        } else if (result.role === "Admin") {
+          res.send({ message: "success", result: result.role });
+        } else {
           res.send({ message: "success", result: result });
         }
       } else {
@@ -99,7 +115,7 @@ app.post("/login", (req, res) => {
 });
 
 app.post("/admineventmore", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const adminevent = new MoreEvents({
       eventname: req.body[0].category,
